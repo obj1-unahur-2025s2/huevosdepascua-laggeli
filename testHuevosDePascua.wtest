@@ -1,0 +1,12 @@
+import huevosDePascua.*
+
+describe "group of tests" {
+
+  test "test 1" {
+    assert.equals(50+50, 100)
+  }
+  test "test 2" {
+    assert.that(true)
+  }
+
+}
