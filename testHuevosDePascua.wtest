@@ -1,12 +1,32 @@
 import huevosDePascua.*
+import caceria.*
 
-describe "group of tests" {
-
-  test "test 1" {
-    assert.equals(50+50, 100)
+describe "Test" {
+  method initialize() {
+    blisterHuevitos.cantidadHuevos(14)
+    matrioshka.huevoAdentro(blisterHuevitos)
+    flor.cantPetalos(7)
+    matrioshka.decoracion(flor)
+    caceria.esconderHuevo(matrioshka)
+    caceria.esconderHuevo(huevoRepostero)
+    caceria.esconderHuevo(conejo)
+    caceria.esconderHuevo(huevoMixto)
   }
-  test "test 2" {
-    assert.that(true)
-  }
+  test "Cacería" {
+    caceria.encuentraPrimerHuevo(ana)
+    assert.notThat(caceria.huevosEscondidos().contains(matrioshka))
+    assert.that(caceria.huevosEncontrados().contains(matrioshka))
+    assert.equals(5520, ana.caloríasQueIngirió())
+    assert.equals(3, caceria.cuántosFaltan())
+    assert.equals(2, caceria.cuántosFaltanDeChocolateBlanco())
+    assert.notThat(caceria.huevosEncontrados().contains(conejo))
 
+    assert.that(caceria.huevosDeChocolateBlanco().contains(huevoRepostero))
+    assert.that(caceria.huevosDeChocolateBlanco().contains(huevoMixto))
+    caceria.encuentraUnHuevo(tito, huevoMixto)
+    caceria.encontrarTodosLosHuevos(josé)
+    assert.that(ana.estáEnfermo())
+    assert.that(josé.estáEnfermo())
+    assert.notThat(tito.estáEnfermo())
+  }
 }
